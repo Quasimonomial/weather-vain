@@ -333,6 +333,7 @@ DEPENDENCIES
   bootsnap
   brakeman
   debug
+  dotenv
   faraday
   kamal
   pry-rails

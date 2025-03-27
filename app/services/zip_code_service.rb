@@ -1,17 +1,17 @@
 class ZipCodeService
-  # I think we have to truncate to the 5 digit zip code before we call this
   def self.find_zip_code zip_code_string
-    standard_zip_code = zip_code_string[0, 5] # Ignore ZIP + 4 extended codes for our purpose
+    # Ignore [ZIP + 4 extended] codes for our purposes
+    standard_zip_code = zip_code_string[0, 5]
 
     zip_code = ZipCode.find_by_code(standard_zip_code)
 
     if zip_code.nil?
-      # TODO: Handle if this fails, or if
-      # zipe_code_data[:post_code] != zip_code
-
-      puts "Zip Code Data not found in cache, fetching from api"
-
       zc_data = ZippopotamClient.get_zipcode_data(standard_zip_code)
+
+      if zc_data.empty? # Note: return this b/c we want to act on it in the next layer, same for errors from the client acutally
+        return ZipCode.create_invalid_zip!(standard_zip_code)
+      end
+
       zc_place_data = zc_data[:places].first
 
       zip_code = ZipCode.create!(

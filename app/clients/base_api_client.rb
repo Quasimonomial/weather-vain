@@ -1,4 +1,6 @@
 class BaseApiClient
+  # TODO: Api Error handling strategy
+
   class ApiKeyMissing < StandardError; end
 
   class << self

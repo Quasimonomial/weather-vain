@@ -1,6 +1,6 @@
 module ResponseHelpers
   module Zippopotam
-    def build_resp_used_zip_code(params = {})
+    def build_resp_valid_zip_code(params = {})
       {
         "post code".to_sym => format("%05d", rand(0..99999)),
         "country": "United States",
@@ -17,7 +17,7 @@ module ResponseHelpers
       }.deep_merge!(params, merge_hash_arrays: true)
     end
 
-    def build_resp_unused_zip_code
+    def build_resp_invalid_zip_code
       {}
     end
   end

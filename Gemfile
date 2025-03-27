@@ -51,7 +51,7 @@ group :development, :test do
 end
 
 group :development do
-  gem 'annotate'
+  gem 'annotaterb'
 end
 
 group :test do

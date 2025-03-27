@@ -1,5 +1,5 @@
 class ZipCodeService
-  def self.find_zip_code zip_code_string
+  def self.find_zip_code(zip_code_string)
     # Ignore [ZIP + 4 extended] codes for our purposes
     standard_zip_code = zip_code_string[0, 5]
 
@@ -21,6 +21,6 @@ class ZipCodeService
       )
     end
 
-    return zip_code
+    zip_code
   end
 end

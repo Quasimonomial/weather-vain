@@ -1,4 +1,4 @@
-module ResponseHelpers
+module ApiHelpers
   module Zippopotam
     def build_resp_valid_zip_code(params = {})
       {
@@ -19,6 +19,15 @@ module ResponseHelpers
 
     def build_resp_invalid_zip_code
       {}
+    end
+
+    def stub_200_with_resp(q, resp_body)
+      stub_request(:get, "http://api.zippopotam.us/us/#{q}")
+        .to_return(
+          status: 200,
+          body: resp_body.to_json,
+          headers: { 'Content-Type' => 'application/json' }
+        )
     end
   end
 end

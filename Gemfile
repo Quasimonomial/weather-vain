@@ -38,7 +38,7 @@ gem "thruster", require: false
 gem 'dotenv'
 gem "deep_merge" # mostly for testing
 gem 'faraday'
-
+gem 'jwt'
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
@@ -62,5 +62,6 @@ group :test do
   gem 'rspec-rails', '~> 7.0.0'
   gem 'shoulda-matchers', '~> 6.0'
   gem 'simplecov'
+  gem 'timecop'
   gem 'webmock'
 end

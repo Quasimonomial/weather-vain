@@ -132,6 +132,8 @@ GEM
       rdoc (>= 4.0.0)
       reline (>= 0.4.2)
     json (2.10.2)
+    jwt (2.10.1)
+      base64
     kamal (2.5.3)
       activesupport (>= 7.0)
       base64 (~> 0.2)
@@ -348,6 +350,7 @@ GEM
     thruster (0.1.12-aarch64-linux)
     thruster (0.1.12-x86_64-darwin)
     thruster (0.1.12-x86_64-linux)
+    timecop (0.9.10)
     timeout (0.4.3)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
@@ -387,6 +390,7 @@ DEPENDENCIES
   factory_bot_rails
   faker
   faraday
+  jwt
   kamal
   pry-rails
   puma (>= 5.0)
@@ -400,6 +404,7 @@ DEPENDENCIES
   solid_queue
   sqlite3 (>= 2.1)
   thruster
+  timecop
   tzinfo-data
   webmock
 

@@ -38,11 +38,6 @@ gem "thruster", require: false
 gem 'dotenv'
 gem 'faraday'
 
-group :development do
-  gem 'annotate'
-end
-
-
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri windows ], require: "debug/prelude"
@@ -53,4 +48,15 @@ group :development, :test do
 
   # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
   gem "rubocop-rails-omakase", require: false
+end
+
+group :development do
+  gem 'annotate'
+end
+
+group :test do
+  gem 'rspec-rails', '~> 7.0.0'
+  gem 'shoulda-matchers', '~> 6.0'
+  gem 'simplecov'
+  gem 'webmock'
 end

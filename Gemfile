@@ -61,7 +61,7 @@ end
 group :test do
   gem "factory_bot_rails"
   gem "faker"
-  gem "rspec-rails", "~> 7.0.0"
+  gem "rspec-rails", "~> 7.1.1"
   gem "shoulda-matchers", "~> 6.0"
   gem "simplecov"
   gem "timecop"

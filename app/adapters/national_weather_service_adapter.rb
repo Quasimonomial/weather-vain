@@ -14,7 +14,7 @@ class NationalWeatherServiceAdapter
     forecast_periods.map do |p|
       percipitation = p[:probabilityOfPrecipitation][:value]
       {
-        end_tme: p[:endTime],
+        end_time: p[:endTime],
         start_time: p[:startTime],
         temperature_high: p[:temperature], # we always do in F
         temperature_low: p[:temperature], # NWS gives us one temp object but we can correlate this on the FE since we get multiple samples a day

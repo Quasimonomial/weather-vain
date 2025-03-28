@@ -10,7 +10,7 @@ class AppleWeatherkitAdapter
     forecast_periods.map do |d|
       {
         start_time: d[:daytimeForecast][:forecastStart],
-        end_tme: d[:daytimeForecast][:forecastEnd],
+        end_time: d[:daytimeForecast][:forecastEnd],
         temperature_low: self.convert_temp_c_to_f(
           d[:daytimeForecast][:temperatureMin]
         ).to_i, # we always do in F

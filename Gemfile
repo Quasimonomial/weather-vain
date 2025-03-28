@@ -35,15 +35,16 @@ gem "thruster", require: false
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin Ajax possible
 # gem "rack-cors"
 
-gem 'dotenv'
+gem "dotenv"
 gem "deep_merge" # mostly for testing
-gem 'faraday'
-gem 'jwt'
+gem "faraday"
+gem "jwt"
+gem "redis"
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri windows ], require: "debug/prelude"
-  gem 'pry-rails'
+  gem "pry-rails"
 
   # Static analysis for security vulnerabilities [https://brakemanscanner.org/]
   gem "brakeman", require: false
@@ -53,15 +54,15 @@ group :development, :test do
 end
 
 group :development do
-  gem 'annotaterb'
+  gem "annotaterb"
 end
 
 group :test do
-  gem 'factory_bot_rails'
-  gem 'faker'
-  gem 'rspec-rails', '~> 7.0.0'
-  gem 'shoulda-matchers', '~> 6.0'
-  gem 'simplecov'
-  gem 'timecop'
-  gem 'webmock'
+  gem "factory_bot_rails"
+  gem "faker"
+  gem "rspec-rails", "~> 7.0.0"
+  gem "shoulda-matchers", "~> 6.0"
+  gem "simplecov"
+  gem "timecop"
+  gem "webmock"
 end

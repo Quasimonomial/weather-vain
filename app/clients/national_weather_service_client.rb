@@ -1,3 +1,6 @@
+# Documentation for API found here: https://www.weather.gov/documentation/services-web-api
+# Also it is very funny that this API appears to return GEOJSON https://datatracker.ietf.org/doc/html/rfc7946
+
 class NationalWeatherServiceClient < BaseApiClient
   BASE_URL = "https://api.weather.gov"
 
@@ -5,25 +8,28 @@ class NationalWeatherServiceClient < BaseApiClient
     @@connection ||= Faraday.new(BASE_URL)
   end
 
-  def self.get_weather_forecast_by_grid(grid_x, grid_y)
-    response = conn.get("/gridpoints/MTR/#{grid_x},#{grid_y}/forecast")
-    self.parse_resp_body(response)
+  def self.get_weather_forecast_by_grid_daily(grid_x, grid_y)
+    # returns a 7 day forcast, 2 periods per day
+    resp = conn.get("/gridpoints/MTR/#{grid_x},#{grid_y}/forecast")
+    self.parse_resp_body(resp)
   end
 
   def self.get_weather_forecast_by_grid_hourly(grid_x, grid_y)
-    response = conn.get("/gridpoints/MTR/#{grid_x},#{grid_y}/forecast/hourly")
-    self.parse_resp_body(response)
+    # returns 156 hours or 6 day forcast
+    resp = conn.get("/gridpoints/MTR/#{grid_x},#{grid_y}/forecast/hourly")
+    self.parse_resp_body(resp)
   end
 
-  def self.get_grid_coords(lat, long)
+  def self.get_grid_coords(latitude, longitude)
     # TODO: Cache these as we go
-    lat, long = [ lat, long ].map { |c| self.round_for_api(c) }
+    latitude, longitude = [ latitude, longitude ].map { |c| self.round_for_api(c) }
 
-    response = conn.get("/points/#{lat},#{long}")
-    self.parse_resp_body(response)
+    resp = conn.get("/points/#{latitude},#{longitude}")
+    self.parse_resp_body(resp)
   end
 
   private
+
   def self.round_for_api(coord)
     # National Weather Service accepts 4 digits of percision and returns 301 if you attempt to do more
     coord.round(4)

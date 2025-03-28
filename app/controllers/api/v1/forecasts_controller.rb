@@ -1,4 +1,4 @@
-class Api::ForecastsController < ApplicationController
+class Api::V1::ForecastsController < ApplicationController
   def create
     zc_code = forecast_params[:address][:zip_code]
     zip_code = ZipCodeService.find_zip_code(zc_code)

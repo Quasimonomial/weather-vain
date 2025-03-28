@@ -1,4 +1,4 @@
-class Api::AddressesController < ApplicationController
+class Api::V1::AddressesController < ApplicationController
   def create
     query = address_params[:query]
     address_data = AddressService.get_addresses_from_query(query)

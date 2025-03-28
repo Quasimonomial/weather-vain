@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   namespace :api do
-    resources "addresses", only: [ :create ]
-    resources "forecasts", only: [ :create ]
+    namespace :v1 do
+      resources "addresses", only: [ :create ]
+      resources "forecasts", only: [ :create ]
+    end
   end
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

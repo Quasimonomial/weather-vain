@@ -40,6 +40,7 @@ gem "deep_merge" # mostly for testing
 gem "faraday"
 gem "jwt"
 gem "redis"
+gem "rswag"
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem

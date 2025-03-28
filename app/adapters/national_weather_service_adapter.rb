@@ -24,5 +24,3 @@ class NationalWeatherServiceAdapter
     end
   end
 end
-
-

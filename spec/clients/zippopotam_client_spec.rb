@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe ZippopotamClient do
   include ApiHelpers::Zippopotam
 
-  let(:valid_zc_resp) { build_resp_valid_zip_code({ "post code".to_sym => some_florida_zip_code}) }
+  let(:valid_zc_resp) { build_resp_valid_zip_code({ "post code".to_sym => some_florida_zip_code }) }
   let(:invalid_zc_resp) { build_resp_invalid_zip_code() }
   let(:some_florida_zip_code) { "32024" }
   let(:some_unallocated_zip_code) { "00000" }

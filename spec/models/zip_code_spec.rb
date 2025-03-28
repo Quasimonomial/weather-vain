@@ -19,10 +19,10 @@ require 'rails_helper'
 
 RSpec.describe ZipCode, type: :model do
   describe "validations" do
-    let(:real_zc) { build(:zip_code)}
+    let(:real_zc) { build(:zip_code) }
     let(:real_zc_no_lat) { build(:zip_code, latitude: nil) }
     let(:real_zc_no_long) { build(:zip_code, longitude: nil) }
-    let(:fake_zc) { build(:unused_zip_code)}
+    let(:fake_zc) { build(:unused_zip_code) }
 
     it { should validate_presence_of(:code) }
 

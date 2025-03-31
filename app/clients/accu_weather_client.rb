@@ -1,5 +1,6 @@
 # Documentation for API found here: https://developer.accuweather.com/apis
 # See Packages - we can be VERY limited in our API Calls but we can fall back https://developer.accuweather.com/packages
+# Also not using this one because the free tier sucks
 
 class AccuWeatherClient < BaseApiClient
   BASE_URL = "https://dataservice.accuweather.com"
@@ -13,7 +14,6 @@ class AccuWeatherClient < BaseApiClient
   end
 
   def self.get_location_from_zip(zip_code)
-    # TODO also Cache this b/c they limit us so much
     resp = conn.get("/locations/v1/postalcodes/search") do |req|
       req.params[:q] = zip_code
     end

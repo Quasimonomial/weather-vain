@@ -38,6 +38,7 @@ module WeatherVain
     # config.eager_load_paths << Rails.root.join("extras")
     config.eager_load_paths << Rails.root.join("app", "adapters")
     config.eager_load_paths << Rails.root.join("app", "clients")
+    config.eager_load_paths << Rails.root.join("app", "errors")
     config.eager_load_paths << Rails.root.join("app", "services")
 
     # Only loads a smaller set of middleware suitable for API only apps.

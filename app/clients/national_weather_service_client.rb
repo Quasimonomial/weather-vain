@@ -21,7 +21,6 @@ class NationalWeatherServiceClient < BaseApiClient
   end
 
   def self.get_grid_coords(latitude, longitude)
-    # TODO: Cache these as we go
     latitude, longitude = [ latitude, longitude ].map { |c| self.round_for_api(c) }
 
     resp = conn.get("/points/#{latitude},#{longitude}")

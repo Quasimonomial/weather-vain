@@ -8,7 +8,7 @@ class ZipCodeService
     if zip_code.nil?
       zc_data = ZippopotamClient.get_zipcode_data(standard_zip_code)
 
-      if zc_data.empty? # Note: return this b/c we want to act on it in the next layer, same for errors from the client acutally
+      if zc_data.empty? # Note: return this b/c we want to act on it in the next layer, same for errors from the client actually
         return ZipCode.create_invalid_zip!(standard_zip_code)
       end
 

@@ -12,13 +12,13 @@ class NationalWeatherServiceAdapter
 
   def self.format_response_for_weather_vane(forecast_periods)
     forecast_periods.map do |p|
-      percipitation = p[:probabilityOfPrecipitation][:value]
+      precipitation = p[:probabilityOfPrecipitation][:value]
       {
         end_time: p[:endTime],
         start_time: p[:startTime],
         temperature_high: p[:temperature], # we always do in F
         temperature_low: p[:temperature], # NWS gives us one temp object but we can correlate this on the FE since we get multiple samples a day
-        percipitation: percipitation.nil? ? 0 : percipitation, # this is in percent
+        precipitation: precipitation.nil? ? 0 : precipitation, # this is in percent
         skies: p[:shortForecast] # TODO: we need to standardize this
       }
     end

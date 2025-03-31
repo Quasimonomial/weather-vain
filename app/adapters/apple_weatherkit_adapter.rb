@@ -17,7 +17,7 @@ class AppleWeatherkitAdapter
         temperature_high: self.convert_temp_c_to_f(
           d[:daytimeForecast][:temperatureMax]
         ).to_i, # we always do in F
-        percipitation: d[:daytimeForecast][:precipitationChance] * 100.0, # this is in percent
+        precipitation: d[:daytimeForecast][:precipitationChance] * 100.0, # this is in percent
         skies: d[:daytimeForecast][:conditionCode] # TODO: we need to standardize this
       }
     end

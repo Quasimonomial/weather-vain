@@ -8,15 +8,16 @@ class NationalWeatherServiceClient < BaseApiClient
     @@connection ||= Faraday.new(BASE_URL)
   end
 
-  def self.get_weather_forecast_by_grid_daily(grid_x, grid_y)
+  def self.get_weather_forecast_by_grid_daily(office, grid_x, grid_y)
     # returns a 7 day forcast, 2 periods per day
-    resp = conn.get("/gridpoints/MTR/#{grid_x},#{grid_y}/forecast")
+    resp = conn.get("/gridpoints/#{office}/#{grid_x},#{grid_y}/forecast")
+
     self.handle_response(resp)
   end
 
-  def self.get_weather_forecast_by_grid_hourly(grid_x, grid_y)
+  def self.get_weather_forecast_by_grid_hourly(office, grid_x, grid_y)
     # returns 156 hours or 6 day forcast
-    resp = conn.get("/gridpoints/MTR/#{grid_x},#{grid_y}/forecast/hourly")
+    resp = conn.get("/gridpoints/#{office}/#{grid_x},#{grid_y}/forecast/hourly")
     self.handle_response(resp)
   end
 

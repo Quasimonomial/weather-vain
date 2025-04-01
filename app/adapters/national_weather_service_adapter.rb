@@ -1,10 +1,11 @@
 class NationalWeatherServiceAdapter
   def self.get_forecast_from_lat_long(latitude, longitude)
     grid_resp = NationalWeatherServiceClient.get_grid_coords(latitude, longitude)
+    office = grid_resp[:properties][:gridId]
     grid_x = grid_resp[:properties][:gridX]
     grid_y = grid_resp[:properties][:gridY]
 
-    forecast_daily = NationalWeatherServiceClient.get_weather_forecast_by_grid_daily(grid_x, grid_y)
+    forecast_daily = NationalWeatherServiceClient.get_weather_forecast_by_grid_daily(office, grid_x, grid_y)
     # forecast_hourly = NationalWeatherServiceClient.get_weather_forecast_by_grid_hourly(grid_x, grid_y)
     formatted_resp = self.format_response_for_weather_vane(forecast_daily[:properties][:periods])
     formatted_resp

@@ -17,15 +17,20 @@ module ApiHelpers
       }.deep_merge!(params, merge_hash_arrays: true)
     end
 
-    def build_resp_invalid_zip_code
-      {}
-    end
-
-    def stub_200_with_resp(q, resp_body)
+    def zp_stub_200_with_resp(q, resp_body)
       stub_request(:get, "http://api.zippopotam.us/us/#{q}")
         .to_return(
           status: 200,
           body: resp_body.to_json,
+          headers: { 'Content-Type' => 'application/json' }
+        )
+    end
+
+    def zp_stub_400_not_found(q)
+      stub_request(:get, "http://api.zippopotam.us/us/#{q}")
+        .to_return(
+          status: 404,
+          body: {}.to_json,
           headers: { 'Content-Type' => 'application/json' }
         )
     end

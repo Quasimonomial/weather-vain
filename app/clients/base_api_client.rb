@@ -25,40 +25,40 @@ class BaseApiClient
       self.parse_resp_body(resp)
     when 400
       raise BadRequestError.new(
-        status: response.status,
-        response: parse_resp_error(response),
+        status: resp.status,
+        response: parse_resp_error(resp),
         api_client: api_client
       )
     when 401, 403
       raise AuthError.new(
-        status: response.status,
-        response: parse_resp_error(response),
+        status: resp.status,
+        response: parse_resp_error(resp),
         api_client: api_client
       )
     when 404
       raise NotFoundError.new(
-        status: response.status,
-        response: parse_resp_error(response),
+        status: resp.status,
+        response: parse_resp_error(resp),
         api_client: api_client
       )
     when 429 # :too_many_requests
       # The best thing to do is retries with retry n at 2^n seconds with jitter
       raise RateLimitError.new(
-        status: response.status,
-        response: parse_resp_error(response),
+        status: resp.status,
+        response: parse_resp_error(resp),
         api_client: api_client
       )
     when 500..599
       raise ServerError.new(
-        status: response.status,
-        response: parse_resp_error(response),
+        status: resp.status,
+        response: parse_resp_error(resp),
         api_client: api_client
       )
     else
       raise ApiError.new(
-        "Unexpected status code: #{response.status}",
-        status: response.status,
-        response: parse_resp_error(response),
+        "Unexpected status code: #{resp.status}",
+        status: resp.status,
+        response: parse_resp_error(resp),
         api_client: api_client
       )
     end

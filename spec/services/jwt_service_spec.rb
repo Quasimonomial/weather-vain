@@ -9,11 +9,11 @@ RSpec.describe JwtService do
 
   let(:jwt_service) { JwtService.new() }
 
-  before do
+  before(:each) do
     Timecop.freeze(start_time)
   end
 
-  after do
+  after(:each) do
     Timecop.return
   end
 
@@ -70,7 +70,7 @@ RSpec.describe JwtService do
   end
 
   describe "#will_soon_expire" do
-    before do
+    before(:each) do
       jwt_service.get_valid_jwt()
       Timecop.return
     end

@@ -9,6 +9,6 @@ class ZippopotamClient < BaseApiClient
 
   def self.get_zipcode_data(zip_code)
     resp = conn.get("/us/#{zip_code}")
-    self.parse_resp_body(resp)
+    self.handle_response(resp)
   end
 end

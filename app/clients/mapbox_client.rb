@@ -10,8 +10,10 @@ class MapboxClient < BaseApiClient
 
   def self.geocode_string_to_address(query)
     resp = conn.get("/search/geocode/v6/forward", {
-      q: query
+      q: query,
+      country: "US"
     })
-    self.parse_resp_body(resp)
+
+    self.handle_response(resp)
   end
 end

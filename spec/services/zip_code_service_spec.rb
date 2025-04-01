@@ -6,13 +6,12 @@ RSpec.describe ZipCodeService do
   describe ".find_zip_code" do
     describe "zip code with Client fetching" do
       let(:valid_zc_resp) { build_resp_valid_zip_code({ "post code".to_sym => some_florida_zip_code }) }
-      let(:invalid_zc_resp) { build_resp_invalid_zip_code() }
       let(:some_florida_zip_code) { "32024" }
       let(:some_unallocated_zip_code) { "00000" }
 
       context "zip code is a normal valid zip code in use" do
         it "finds the zip code and returns the cached zip on future calls" do
-          client_stub = stub_200_with_resp(some_florida_zip_code, valid_zc_resp)
+          client_stub = zp_stub_200_with_resp(some_florida_zip_code, valid_zc_resp)
 
           service_zip = ZipCodeService.find_zip_code(some_florida_zip_code)
           model_zip = ZipCode.find_by_code(some_florida_zip_code)
@@ -31,7 +30,7 @@ RSpec.describe ZipCodeService do
 
       context "zip code is invalid zip code not allocated by usps" do
         it "finds the zip code and returns the cached zip on future calls" do
-          client_stub = stub_200_with_resp(some_unallocated_zip_code, invalid_zc_resp)
+          client_stub = zp_stub_400_not_found(some_unallocated_zip_code)
 
           service_zip = ZipCodeService.find_zip_code(some_unallocated_zip_code)
           model_zip = ZipCode.find_by_code(some_unallocated_zip_code)

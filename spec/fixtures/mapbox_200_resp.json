@@ -1,0 +1,179 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "id": "dXJuOm1ieGFkci1zdHI6NjIyZTMyMzctNGM0YS00ZDhhLTlmMGYtY2Y4YjQ2OTkyZjA5",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -103.99091,
+                    46.91456
+                ]
+            },
+            "properties": {
+                "mapbox_id": "dXJuOm1ieGFkci1zdHI6NjIyZTMyMzctNGM0YS00ZDhhLTlmMGYtY2Y4YjQ2OTkyZjA5",
+                "feature_type": "street",
+                "full_address": "Main St E Po Box 247 Beach, Beach, North Dakota 58621, United States",
+                "name": "Main St E Po Box 247 Beach",
+                "name_preferred": "Main St E Po Box 247 Beach",
+                "coordinates": {
+                    "longitude": -103.99091,
+                    "latitude": 46.91456
+                },
+                "place_formatted": "Beach, North Dakota 58621, United States",
+                "context": {
+                    "street": {
+                        "mapbox_id": "dXJuOm1ieGFkci1zdHI6NjIyZTMyMzctNGM0YS00ZDhhLTlmMGYtY2Y4YjQ2OTkyZjA5",
+                        "name": "Main St E Po Box 247 Beach"
+                    },
+                    "postcode": {
+                        "mapbox_id": "dXJuOm1ieHBsYzpDL3dPN0E",
+                        "name": "58621"
+                    },
+                    "place": {
+                        "mapbox_id": "dXJuOm1ieHBsYzpBVDNvN0E",
+                        "name": "Beach",
+                        "wikidata_id": "Q1999217"
+                    },
+                    "district": {
+                        "mapbox_id": "dXJuOm1ieHBsYzpoQ2Jz",
+                        "name": "Golden Valley County",
+                        "wikidata_id": "Q48926"
+                    },
+                    "region": {
+                        "mapbox_id": "dXJuOm1ieHBsYzpaT3c",
+                        "name": "North Dakota",
+                        "wikidata_id": "Q1207",
+                        "region_code": "ND",
+                        "region_code_full": "US-ND"
+                    },
+                    "country": {
+                        "mapbox_id": "dXJuOm1ieHBsYzpJdXc",
+                        "name": "United States",
+                        "wikidata_id": "Q30",
+                        "country_code": "US",
+                        "country_code_alpha_3": "USA"
+                    }
+                }
+            }
+        }, {
+            "type": "Feature",
+            "id": "dXJuOm1ieGFkci1zdHI6ZTJiZjZkZTgtOGVmNS00MmU3LThhODUtY2U1ZGY4MmZlODI2",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -85.15332,
+                    41.07872
+                ]
+            },
+            "properties": {
+                "mapbox_id": "dXJuOm1ieGFkci1zdHI6ZTJiZjZkZTgtOGVmNS00MmU3LThhODUtY2U1ZGY4MmZlODI2",
+                "feature_type": "street",
+                "full_address": "W Main St to 1036, Fort Wayne, Indiana 46802, United States",
+                "name": "W Main St to 1036",
+                "name_preferred": "W Main St to 1036",
+                "coordinates": {
+                    "longitude": -85.15332,
+                    "latitude": 41.07872
+                },
+                "place_formatted": "Fort Wayne, Indiana 46802, United States",
+                "context": {
+                    "street": {
+                        "mapbox_id": "dXJuOm1ieGFkci1zdHI6ZTJiZjZkZTgtOGVmNS00MmU3LThhODUtY2U1ZGY4MmZlODI2",
+                        "name": "W Main St to 1036"
+                    },
+                    "neighborhood": {
+                        "mapbox_id": "dXJuOm1ieHBsYzpLYkNNN0E",
+                        "name": "West Central"
+                    },
+                    "postcode": {
+                        "mapbox_id": "dXJuOm1ieHBsYzpDV0t1N0E",
+                        "name": "46802"
+                    },
+                    "place": {
+                        "mapbox_id": "dXJuOm1ieHBsYzpCdVhvN0E",
+                        "name": "Fort Wayne",
+                        "wikidata_id": "Q49268"
+                    },
+                    "district": {
+                        "mapbox_id": "dXJuOm1ieHBsYzpCaWJz",
+                        "name": "Allen County",
+                        "wikidata_id": "Q493443"
+                    },
+                    "region": {
+                        "mapbox_id": "dXJuOm1ieHBsYzpBb1Rz",
+                        "name": "Indiana",
+                        "wikidata_id": "Q1415",
+                        "region_code": "IN",
+                        "region_code_full": "US-IN"
+                    },
+                    "country": {
+                        "mapbox_id": "dXJuOm1ieHBsYzpJdXc",
+                        "name": "United States",
+                        "wikidata_id": "Q30",
+                        "country_code": "US",
+                        "country_code_alpha_3": "USA"
+                    }
+                }
+            }
+        }, {
+            "type": "Feature",
+            "id": "dXJuOm1ieGFkci1zdHI6MDY4M2YwZTEtMmYxNi00MmJhLWJkM2MtNmU3ZDQ0MGRjMDI3",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -102.03839,
+                    45.02294
+                ]
+            },
+            "properties": {
+                "mapbox_id": "dXJuOm1ieGFkci1zdHI6MDY4M2YwZTEtMmYxNi00MmJhLWJkM2MtNmU3ZDQ0MGRjMDI3",
+                "feature_type": "street",
+                "full_address": "Main Street Prairie Oasis Mall, Faith, South Dakota 57626, United States",
+                "name": "Main Street Prairie Oasis Mall",
+                "name_preferred": "Main Street Prairie Oasis Mall",
+                "coordinates": {
+                    "longitude": -102.03839,
+                    "latitude": 45.02294
+                },
+                "place_formatted": "Faith, South Dakota 57626, United States",
+                "context": {
+                    "street": {
+                        "mapbox_id": "dXJuOm1ieGFkci1zdHI6MDY4M2YwZTEtMmYxNi00MmJhLWJkM2MtNmU3ZDQ0MGRjMDI3",
+                        "name": "Main Street Prairie Oasis Mall"
+                    },
+                    "postcode": {
+                        "mapbox_id": "dXJuOm1ieHBsYzpDOHh1N0E",
+                        "name": "57626"
+                    },
+                    "place": {
+                        "mapbox_id": "dXJuOm1ieHBsYzpCbXBJN0E",
+                        "name": "Faith",
+                        "wikidata_id": "Q2366775"
+                    },
+                    "district": {
+                        "mapbox_id": "dXJuOm1ieHBsYzo2b2Jz",
+                        "name": "Meade County",
+                        "wikidata_id": "Q495269"
+                    },
+                    "region": {
+                        "mapbox_id": "dXJuOm1ieHBsYzpoT3c",
+                        "name": "South Dakota",
+                        "wikidata_id": "Q1211",
+                        "region_code": "SD",
+                        "region_code_full": "US-SD"
+                    },
+                    "country": {
+                        "mapbox_id": "dXJuOm1ieHBsYzpJdXc",
+                        "name": "United States",
+                        "wikidata_id": "Q30",
+                        "country_code": "US",
+                        "country_code_alpha_3": "USA"
+                    }
+                }
+            }
+        }
+    ],
+    "attribution": "NOTICE: © 2025 Mapbox and its suppliers. All rights reserved. Use of this data is subject to the Mapbox Terms of Service (https://www.mapbox.com/about/maps/). This response and the information it contains may not be retained."
+}

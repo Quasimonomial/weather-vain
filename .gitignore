@@ -9,6 +9,7 @@
 
 # Ignore all environment files.
 /.env*
+!.env.test
 
 # Ignore all logfiles and tempfiles.
 /log/*
@@ -33,3 +34,5 @@
 
 # Ignore SimpleCov Coverage Files
 /coverage
+
+/spec/fixtures/unused/*

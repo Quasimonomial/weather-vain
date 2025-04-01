@@ -11,20 +11,20 @@ class NationalWeatherServiceClient < BaseApiClient
   def self.get_weather_forecast_by_grid_daily(grid_x, grid_y)
     # returns a 7 day forcast, 2 periods per day
     resp = conn.get("/gridpoints/MTR/#{grid_x},#{grid_y}/forecast")
-    self.parse_resp_body(resp)
+    self.handle_response(resp)
   end
 
   def self.get_weather_forecast_by_grid_hourly(grid_x, grid_y)
     # returns 156 hours or 6 day forcast
     resp = conn.get("/gridpoints/MTR/#{grid_x},#{grid_y}/forecast/hourly")
-    self.parse_resp_body(resp)
+    self.handle_response(resp)
   end
 
   def self.get_grid_coords(latitude, longitude)
     latitude, longitude = [ latitude, longitude ].map { |c| self.round_for_api(c) }
 
     resp = conn.get("/points/#{latitude},#{longitude}")
-    self.parse_resp_body(resp)
+    self.handle_response(resp)
   end
 
   private

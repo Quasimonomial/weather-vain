@@ -25,7 +25,7 @@ class AppleWeatherkitClient < BaseApiClient
       req.headers["Authorization"] = "Bearer #{@jwt_service.get_valid_jwt}"
     end
 
-    AppleWeatherkitClient.parse_resp_body(resp)
+    AppleWeatherkitClient.handle_response(resp)
   end
 
   def get_weather_forecast_daily(latitude, longitude)
@@ -37,7 +37,7 @@ class AppleWeatherkitClient < BaseApiClient
       req.headers["Authorization"] = "Bearer #{@jwt_service.get_valid_jwt}"
     end
 
-    AppleWeatherkitClient.parse_resp_body(resp)
+    AppleWeatherkitClient.handle_response(resp)
   end
 
   def get_weather_forecast_hourly(latitude, longitude)
@@ -49,7 +49,7 @@ class AppleWeatherkitClient < BaseApiClient
       req.headers["Authorization"] = "Bearer #{@jwt_service.get_valid_jwt}"
     end
 
-    AppleWeatherkitClient.parse_resp_body(resp)
+    AppleWeatherkitClient.handle_response(resp)
   end
 
   def get_weather_forecast_availability(latitude, longitude)
@@ -57,6 +57,6 @@ class AppleWeatherkitClient < BaseApiClient
       req.headers["Authorization"] = "Bearer #{@jwt_service.get_valid_jwt}"
     end
 
-    AppleWeatherkitClient.parse_resp_body(resp)
+    AppleWeatherkitClient.handle_response(resp)
   end
 end

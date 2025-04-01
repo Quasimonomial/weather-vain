@@ -13,6 +13,10 @@ class Api::V1::ForecastsController < ApplicationController
       forecast = WeatherForecastService.get_forecast_by_zip(zip_code)
 
       render json: { forecast: forecast }, status: :ok
+    rescue ZipCodeService::InvalidZipError
+      render json: {
+        error: "Zip Code is not properly formatted!"
+      }, status: :bad_request
     rescue
       render json: {
         error: "Failed to process Forecast, there is no weather today, please do not look outside"

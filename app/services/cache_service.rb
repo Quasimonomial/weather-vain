@@ -2,9 +2,9 @@
 # Note: For some types of Cache we would want to keep frequently accessed values refreshed, however Weather itself changes and becomes outdated, we acutally want to refresh it periodically
 
 class CacheService
-  class << self
-    EXPIRATION_INTERVAL = 30.minutes.to_i
+  EXPIRATION_INTERVAL = 30.minutes.to_i
 
+  class << self
     def client
       @client ||= Redis.new()
     end

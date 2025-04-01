@@ -25,6 +25,16 @@ RSpec.describe ZipCode, type: :model do
     let(:fake_zc) { build(:unused_zip_code) }
 
     it { should validate_presence_of(:code) }
+    it do
+      should allow_value("00776").for(:code)
+      should allow_value("56789").for(:code)
+      should_not allow_value("776").for(:code)
+      should_not allow_value("Spaceman Spiff").for(:code)
+      should_not allow_value("49z02").for(:code)
+      should_not allow_value("123456").for(:code)
+      should_not allow_value("34.21").for(:code)
+      should_not allow_value("54321\n").for(:code)
+    end
 
     it "validates latitude + longitude only on existing zip codes" do
       expect(real_zc).to be_valid
@@ -42,6 +52,19 @@ RSpec.describe ZipCode, type: :model do
       expect(zip_code_not_in_use.latitude).to be_nil
       expect(zip_code_not_in_use.longitude).to be_nil
       expect(zip_code_not_in_use.valid_zip).to be false
+    end
+  end
+
+  describe ".valid_zp_format?" do
+    it "is true for valid zip codes and false for invalid zip codes" do
+      expect(ZipCode.valid_zp_format?("00776")).to be true
+      expect(ZipCode.valid_zp_format?("56789")).to be true
+      expect(ZipCode.valid_zp_format?("776")).to be false
+      expect(ZipCode.valid_zp_format?("Spaceman Spiff")).to be false
+      expect(ZipCode.valid_zp_format?("49z02")).to be false
+      expect(ZipCode.valid_zp_format?("123456")).to be false
+      expect(ZipCode.valid_zp_format?("34.21")).to be false
+      expect(ZipCode.valid_zp_format?("54321\n")).to be false
     end
   end
 end

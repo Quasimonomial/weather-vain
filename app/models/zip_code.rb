@@ -18,10 +18,19 @@ class ZipCode < ApplicationRecord
   validates :code, presence: true
   validates :latitude, :longitude, presence: true, if: :valid_zip
 
+  validates :code, format: {
+    with: /\A\d{5}\z/,
+    message: "zip code must be exactly a five digit number string"
+  }
+
   def self.create_invalid_zip!(code)
     ZipCode.create!(
       code: code,
       valid_zip: false
     )
+  end
+
+  def self.valid_zp_format?(code)
+    code.match?(/\A\d{5}\z/)
   end
 end

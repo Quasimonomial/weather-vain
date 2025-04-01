@@ -60,5 +60,19 @@ RSpec.describe ZipCodeService do
         expect(ZippopotamClient).to_not receive(:get_zipcode_data)
       end
     end
+
+    context "non zip code string is passed as query" do
+      let(:not_even_kind_of_a_zip_code) { "Elephant!" }
+
+      it "Throws an error without attempting an API fetch" do
+        client_stub = zp_stub_200_with_resp(not_even_kind_of_a_zip_code, {})
+
+        expect {
+          ZipCodeService.find_zip_code(not_even_kind_of_a_zip_code)
+        }.to raise_error(ZipCodeService::InvalidZipError)
+
+        expect(client_stub).to have_been_requested.times(0)
+      end
+    end
   end
 end

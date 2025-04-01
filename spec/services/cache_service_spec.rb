@@ -7,7 +7,7 @@ RSpec.describe AddressService do
     Timecop.freeze(start_time)
   end
 
-  after do
+  after(:each) do
     Timecop.return
   end
 

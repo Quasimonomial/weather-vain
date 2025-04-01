@@ -17,18 +17,18 @@ class AccuWeatherClient < BaseApiClient
     resp = conn.get("/locations/v1/postalcodes/search") do |req|
       req.params[:q] = zip_code
     end
-    self.parse_resp_body(resp)
+    self.handle_response(resp)
   end
 
   def self.get_forecast_from_location(location_key)
     # 5 days on free plan, 1 period per day
     resp = conn.get("/forecasts/v1/daily/5day/#{location_key}")
-    self.parse_resp_body(resp)
+    self.handle_response(resp)
   end
 
   def self.get_forecast_from_location_hourly(location_key)
     # 12 hour forecast on free plan
     resp = conn.get("/forecasts/v1/hourly/12hour/#{location_key}")
-    self.parse_resp_body(resp)
+    self.handle_response(resp)
   end
 end

@@ -2,11 +2,18 @@ class Api::V1::ForecastsController < ApplicationController
   def create
     begin
       zc_code = forecast_params[:address][:zip_code]
+
+      if zc_code.blank?
+        render json: {
+          error: "Zip Code is required!"
+        }, status: :bad_request and return
+      end
+
       zip_code = ZipCodeService.find_zip_code(zc_code)
 
       unless zip_code.valid_zip
         render json: {
-          error: "Zip Code is invalid!"
+          error: "Zip Code is not in use!"
         }, status: :not_found and return
       end
 
@@ -15,7 +22,7 @@ class Api::V1::ForecastsController < ApplicationController
       render json: { forecast: forecast }, status: :ok
     rescue ZipCodeService::InvalidZipError
       render json: {
-        error: "Zip Code is not properly formatted!"
+        error: "Zip Code is malformed!"
       }, status: :bad_request
     rescue
       render json: {

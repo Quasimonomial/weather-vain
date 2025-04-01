@@ -35,4 +35,7 @@
 # Ignore SimpleCov Coverage Files
 /coverage
 
+# Ignore OSX system files
+.DS_Store
+
 /spec/fixtures/unused/*

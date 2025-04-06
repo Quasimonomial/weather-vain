@@ -38,6 +38,7 @@ gem "thruster", require: false
 gem "dotenv"
 gem "deep_merge" # mostly for testing
 gem "faraday"
+gem "jsbundling-rails"
 gem "jwt"
 gem "redis"
 gem "rswag"

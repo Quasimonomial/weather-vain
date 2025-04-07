@@ -40,7 +40,7 @@ gem "deep_merge" # mostly for testing
 gem "faraday"
 gem "jsbundling-rails"
 gem "jwt"
-gem 'propshaft'
+gem "propshaft"
 gem "redis"
 gem "rswag"
 

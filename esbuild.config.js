@@ -5,7 +5,7 @@ const rails = require("esbuild-rails");
 const watchMode = process.argv.includes("--watch");
 
 const buildOptions = {
-  entryPoints: ["app/javascript/application.js"],
+  entryPoints: ["app/javascript/application.ts"],
   bundle: true,
   outdir: path.join(process.cwd(), "app/assets/builds"),
   absWorkingDir: path.join(process.cwd()),

@@ -8,6 +8,7 @@
         "skipLibCheck": true,
         "rootDir": ".",
         "outDir": "dist",
+        "jsx": "react-jsx"
     },
     "include": ["app/javascript/src/**/*", "app/javascript/tests/**/*"],
     "exclude": ["node_modules", "dist"]

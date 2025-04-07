@@ -21,7 +21,8 @@ const buildOptions = {
     ".woff": "file",
     ".woff2": "file",
     ".ttf": "file",
-    ".eot": "file"
+    ".eot": "file",
+    '.css': 'css'
   },
   resolveExtensions: [".ts", ".tsx", ".js", ".jsx"],
   sourcemap: process.env.RAILS_ENV !== "production"

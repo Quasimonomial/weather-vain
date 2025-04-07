@@ -40,6 +40,7 @@ gem "deep_merge" # mostly for testing
 gem "faraday"
 gem "jsbundling-rails"
 gem "jwt"
+gem 'propshaft'
 gem "redis"
 gem "rswag"
 
@@ -62,6 +63,7 @@ end
 group :test do
   gem "factory_bot_rails"
   gem "faker"
+  gem "rails-controller-testing"
   gem "rspec-rails", "~> 7.0.0"
   gem "shoulda-matchers", "~> 6.0"
   gem "simplecov"

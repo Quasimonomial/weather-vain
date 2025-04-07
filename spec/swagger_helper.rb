@@ -28,8 +28,8 @@ RSpec.configure do |config|
       paths: {},
       servers: [
         {
-          url: "https://{defaultHost}",
-          description: "Weather Api Backend Service"
+          url: "https://weather-vain.vercel.app/",
+          description: "Weather Service"
         }
       ],
       components: {

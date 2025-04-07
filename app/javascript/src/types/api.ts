@@ -15,6 +15,7 @@ export type SkyCondition =
   | 'storm'
   | 'unknown';
 
+// TODO should probably convert these times to Datetimes directly in the WeatherService w/ error handling etc
 export interface ForecastDaily {
   start_time: string;
   end_time: string;

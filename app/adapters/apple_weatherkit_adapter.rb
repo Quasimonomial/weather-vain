@@ -18,7 +18,7 @@ class AppleWeatherkitAdapter
           d[:daytimeForecast][:temperatureMax]
         ).to_i, # we always do in F
         precipitation: (d[:daytimeForecast][:precipitationChance] * 100.0).round, # this is in percent
-        skies: d[:daytimeForecast][:conditionCode]
+        skies: standardize_skies(d[:daytimeForecast][:conditionCode])
       }
     end
   end

@@ -21,7 +21,7 @@ paths:
         content:
           application/json:
             schema:
-              type: string
+              "$ref": "#/components/schemas/address_search_query"
   "/api/v1/forecasts":
     post:
       summary: request forecast
@@ -41,14 +41,9 @@ paths:
         content:
           application/json:
             schema:
-              type: object
-              properties:
-                "$ref": "#/components/schemas/forecast_query"
-              required:
-              - title
-              - content
+              "$ref": "#/components/schemas/forecast_query"
 servers:
-- url: https://weather-vain.vercel.app/
+- url: https://weather-vain.onrender.com/
   description: Weather Service
 components:
   schemas:
@@ -66,23 +61,29 @@ components:
         zip_code:
           type: string
     address_search_query:
-      query:
-        type: string
+      type: object
+      properties:
+        query:
+          type: string
     address_search_resp:
-      address_matches:
-        type: array
-        items:
-          "$ref": "#/components/schemas/address"
+      type: object
+      properties:
+        address_matches:
+          type: array
+          items:
+            "$ref": "#/components/schemas/address"
     forecast_query:
-      address:
-        type: object
-        properties:
+      type: object
+      properties:
+        address:
           "$ref": "#/components/schemas/address"
     forecast_resp:
-      address_matches:
-        type: array
-        items:
-          "$ref": "#/components/schemas/forecast_item"
+      type: object
+      properties:
+        address_matches:
+          type: array
+          items:
+            "$ref": "#/components/schemas/forecast_item"
     forecast_item:
       type: object
       properties:

@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-# TODO: Update after deploy
-
 require "rails_helper"
 
 RSpec.configure do |config|
@@ -28,7 +26,7 @@ RSpec.configure do |config|
       paths: {},
       servers: [
         {
-          url: "https://weather-vain.vercel.app/",
+          url: "https://weather-vain.onrender.com/",
           description: "Weather Service"
         }
       ],
@@ -46,27 +44,36 @@ RSpec.configure do |config|
           },
 
           address_search_query: {
-            query: { type: "string" }
+            type: "object",
+            properties: {
+              query: { type: "string" }
+            }
           },
 
           address_search_resp: {
-            address_matches: {
-              type: "array",
-              items: { "$ref" => "#/components/schemas/address" }
+            type: "object",
+            properties: {
+              address_matches: {
+                type: "array",
+                items: { "$ref" => "#/components/schemas/address" }
+              }
             }
           },
 
           forecast_query: {
-            address: {
-              type: "object",
-              properties: { '$ref' => '#/components/schemas/address' }
+            type: "object",
+            properties: {
+              address: { '$ref' => '#/components/schemas/address' }
             }
           },
 
           forecast_resp: {
-            address_matches: {
-              type: "array",
-              items: { '$ref' => '#/components/schemas/forecast_item' }
+            type: "object",
+            properties: {
+              address_matches: {
+                type: "array",
+                items: { '$ref' => '#/components/schemas/forecast_item' }
+              }
             }
           },
 

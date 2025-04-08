@@ -32,7 +32,7 @@ RSpec.describe "api/v1/addresses", type: :request do
     post("Query for Addresses") do
       tags "Addresses"
       consumes "application/json"
-      parameter name: :query, in: :body, type: :string
+      parameter name: :query, in: :body, schema: { "$ref" => "#/components/schemas/address_search_query" }
 
       response(200, "successful") do
         schema "$ref" => "#/components/schemas/address_search_resp"

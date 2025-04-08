@@ -30,14 +30,7 @@ RSpec.describe "api/v1/forecasts", type: :request do
     post("request forecast") do
       tags "Forecasts"
       consumes "application/json"
-
-      parameter name: :address, in: :body, schema: {
-        type: :object,
-        properties: {
-          '$ref' => '#/components/schemas/forecast_query'
-        },
-        required: [ 'title', 'content' ]
-      }
+      parameter name: :address, in: :body, schema: { '$ref' => '#/components/schemas/forecast_query' }
 
 
       response(200, "successful") do

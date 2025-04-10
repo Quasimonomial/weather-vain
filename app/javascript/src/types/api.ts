@@ -1,3 +1,11 @@
+export interface ApiError {
+  error: string;
+}
+
+export interface AddressResponse {
+  address_matches: Address[];
+}
+
 export interface Address {
   street_address: string | null;
   city: string | null;
@@ -25,14 +33,6 @@ export interface ForecastDaily {
   skies: SkyCondition;
 }
 
-export interface AddressResponse {
-  address_matches: Address[];
-}
-
 export interface ForecastResponse {
   forecast: ForecastDaily[];
-}
-
-export interface ApiError {
-  error: string;
 }

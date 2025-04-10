@@ -29,7 +29,7 @@ const WeatherVain: React.FC = () => {
 
     return (
         <div>
-            <h1>Weather</h1>
+            <h1>Weather Vain</h1>
             <div>
                 <SearchContainer onAddressSelect={handleAddressSelect}/>
             </div>

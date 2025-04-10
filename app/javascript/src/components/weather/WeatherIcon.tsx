@@ -7,9 +7,7 @@ interface WeatherIconProps {
 
 const WeatherIcon: React.FC<WeatherIconProps> = ({condition}) => {
   const skyConditionToIconClass = (condition: SkyCondition): string => {
-    // https://getbootstrap.com/docs/4.0/utilities/colors/ okay eventually need better colors for these
-    console.log("what")
-    console.log(condition)
+    // https://getbootstrap.com/docs/4.0/utilities/colors/ okay eventually need better colors for these)
     switch (condition) {
       case 'sunny':
         return "bi bi-sun-fill text-warning";

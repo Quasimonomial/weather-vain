@@ -18,9 +18,7 @@ const WeatherVain: React.FC = () => {
     const handleAddressSelect = async (address: Address) => {
         setForecast([])
         try {
-            const weatherService = new WeatherService();
-
-            const forecastResults = await weatherService.getDailyForecast(address);
+            const forecastResults = await forecastService.getDailyForecast(address);
             setForecast(forecastResults);
         } catch (err) {
             console.error('Error fetching forecast:', err);

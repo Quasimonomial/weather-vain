@@ -8,9 +8,9 @@
     "test": "jest",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
-    "lint": "eslint app/javascript/**/*.ts",
-    "lint:fix": "eslint app/javascript/**/*.ts --fix",
-    "format": "prettier --write 'app/javascript/**/*.ts'"
+    "lint": "eslint app/javascript/**/*.{ts,tsx}",
+    "lint:fix": "eslint app/javascript/**/*.{ts,tsx} --fix",
+    "format": "prettier --write 'app/javascript/**/*.{ts,tsx}'"
   },
   "dependencies": {
     "@popperjs/core": "^2.11.8",

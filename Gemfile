@@ -34,6 +34,7 @@ gem "jsbundling-rails"
 gem "jwt"
 gem "propshaft"
 gem "redis"
+gem "redis-activesupport"
 gem "rswag"
 
 group :production do

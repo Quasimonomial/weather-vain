@@ -272,7 +272,6 @@ GEM
       psych (>= 4.0.0)
     redis (5.4.0)
       redis-client (>= 0.22.0)
-    redis-activesupport (0.0.0)
     redis-client (0.24.0)
       connection_pool
     regexp_parser (2.10.0)
@@ -435,7 +434,6 @@ DEPENDENCIES
   rails (~> 8.0.2)
   rails-controller-testing
   redis
-  redis-activesupport
   rspec-rails (~> 7.1.1)
   rswag
   rubocop-rails-omakase

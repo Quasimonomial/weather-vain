@@ -6,20 +6,30 @@ RSpec.describe MapboxClient do
   let(:api_key) { "VALID_MAPBOX_API_KEY" }
   let(:invalid_api_key) { "WRONG_API_KEY" }
 
+  let!(:time_now) { Time.local(2025, 3, 25) }
+
   let(:geocoding_query) { "Main Street Post Office" }
 
   before(:each) do
     ENV["MAPBOX_API_TOKEN"] = api_key
+    Timecop.freeze(time_now)
   end
 
   after(:each) do
     if MapboxClient.class_variable_defined?(:@@connection)
       MapboxClient.remove_class_variable(:@@connection)
+      Timecop.return
     end
+
+    CacheService.delete("external_client:rate_limit")
   end
 
   describe ".geocode_string_to_address" do
     context "successful response" do
+      before do
+        CacheService.write("external_client:rate_limit", 10)
+      end
+
       it "returns parsed json body" do
         mb_stub_200_with_resp({
           q: geocoding_query,
@@ -28,7 +38,10 @@ RSpec.describe MapboxClient do
         })
 
         resp_data = MapboxClient.geocode_string_to_address(geocoding_query)
+        api_call_cache_count = CacheService.read("external_client:rate_limit")
+
         expect(resp_data).to eq(mapbox_200_resp_json)
+        expect(api_call_cache_count).to eq(11)
       end
     end
 
@@ -55,6 +68,24 @@ RSpec.describe MapboxClient do
       # https://docs.mapbox.com/api/overview/#rate-limits
 
       it "returns an Api RateLimitError" do
+        mb_stub_429_rate_limit({
+          q: geocoding_query,
+          access_token: api_key,
+          country: "US"
+        })
+
+        expect {
+          MapboxClient.geocode_string_to_address(geocoding_query)
+        }.to raise_error(ApiErrors::RateLimitError)
+      end
+    end
+
+    context "we have hit the monthly rate limit on our side" do
+      before do
+        CacheService.write("external_client:rate_limit", MapboxClient::MONTHLY_FREE_LIMIT * 2)
+      end
+
+      it "returns our Api RateLimitError" do
         mb_stub_429_rate_limit({
           q: geocoding_query,
           access_token: api_key,

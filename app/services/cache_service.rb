@@ -26,6 +26,17 @@ class CacheService
       client.exists?(namespaced_key(key))
     end
 
+    def increment_api_calls(key)
+      ns_key = namespaced_key(key)
+      count = client.incr(ns_key)
+
+      if count == 1
+        client.expire(ns_key, ttl = Time.now.end_of_month.to_i - Time.now.to_i)
+      end
+
+      count
+    end
+
     private
 
     def namespaced_key(key)

@@ -38,49 +38,20 @@ RSpec.describe AddressService do
       expect(CacheService.read("foo")).to be_nil
       expect(CacheService.exist?("foo")).to be false
     end
+
+    it "handles montly api call increases" do
+      expect(CacheService.read("foo_api")).to be_nil
+      expect(CacheService.increment_api_calls("foo_api")).to eq(1)
+      expect(CacheService.increment_api_calls("foo_api")).to eq(2)
+      expect(CacheService.increment_api_calls("foo_api")).to eq(3)
+
+      foo_ttl = CacheService.client.ttl("weather_vain:#{Rails.env}:foo_api")
+      expect(foo_ttl).to be_between(
+        (Time.now.end_of_month.to_i - Time.now.to_i) - 30,
+        (Time.now.end_of_month.to_i - Time.now.to_i)
+      ).inclusive
+
+      CacheService.delete("foo_api")
+    end
   end
 end
-
-
-
-
-# class CacheService
-#   class << self
-#     EXPIRATION_INTERVAL = 30.minutes.to_i
-
-#     def read(key)
-#       redis_data = client.get(namespaced_key(key))
-#       redis_data.present? ? deserialize(redis_data) : nil
-#     end
-
-#     def write(key, value)
-#       client.setex(namespaced_key(key), EXPIRATION_INTERVAL, serialize(value))
-#     end
-
-#     def delete(key)
-#       client.del(namespaced_key(key))
-#     end
-
-#     def exist?(key)
-#       client.exists?(namespaced_key(key))
-#     end
-
-#     private
-
-#     def client
-#       @client ||= Redis.new()
-#     end
-
-#     def namespaced_key(key)
-#       "weather_vain:#{Rails.env}:#{key}"
-#     end
-
-#     def serialize(value)
-#       value.to_json
-#     end
-
-#     def deserialize(value)
-#       JSON.parse(value, { symbolize_names: true })
-#     end
-#   end
-# end

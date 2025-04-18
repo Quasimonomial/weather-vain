@@ -86,12 +86,6 @@ RSpec.describe MapboxClient do
       end
 
       it "returns our Api RateLimitError" do
-        mb_stub_429_rate_limit({
-          q: geocoding_query,
-          access_token: api_key,
-          country: "US"
-        })
-
         expect {
           MapboxClient.geocode_string_to_address(geocoding_query)
         }.to raise_error(ApiErrors::RateLimitError)

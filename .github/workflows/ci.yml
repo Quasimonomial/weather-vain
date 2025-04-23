@@ -49,14 +49,15 @@ jobs:
           ruby-version: '3.4.2'
           bundler-cache: true
 
-      - name: Debug directory structure
+      - name: Show all files and directories
         run: |
           echo "Working directory: $(pwd)"
-          echo "Directory contents:"
+          echo "All files and directories (including hidden):"
           ls -la
-          echo "Looking for .env files:"
-          find . -name "*.env*" -type f
-        shell: bash
+          echo "Recursive listing of all files:"
+          find . -type f | sort
+          echo "Recursive listing of directories only:"
+          find . -type d | sort
 
       - name: Load environment variables
         run: |

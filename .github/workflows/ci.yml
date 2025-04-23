@@ -37,3 +37,31 @@ jobs:
       - name: Lint code for consistent style
         run: bin/rubocop -f github
 
+  test-backend:
+    env:
+      RAILS_ENV: test
+
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.4.2'
+          bundler-cache: true
+
+      - name: Load environment variables
+        run: |
+          set -a
+          source .env.test
+          set +a
+
+      - name: Set up database
+        run: |
+          bundle exec rails db:create
+          bundle exec rails db:schema:load
+
+      - name: Install dependencies
+        run: bundle install --jobs 4 --retry 3
+
+      - name: Run tests
+        run: bundle exec rspec

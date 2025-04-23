@@ -46,6 +46,7 @@ end
 group :test do
   gem "factory_bot_rails"
   gem "faker"
+  gem "mock_redis"
   gem "rails-controller-testing"
   gem "rspec-rails", "~> 7.1.1"
   gem "shoulda-matchers", "~> 6.0"

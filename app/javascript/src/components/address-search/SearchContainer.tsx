@@ -5,7 +5,7 @@ import { Address } from '../../types/api';
 import { AddressService } from '../../services/addressService';
 import AddressList from './AddressList';
 
-var _ = require('lodash');
+let _ = require('lodash'); // eslint-disable-line
 
 interface SearchContainerProps {
     onAddressSelect: (address: Address) => void

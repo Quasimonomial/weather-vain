@@ -51,12 +51,4 @@ class AppleWeatherkitClient < BaseApiClient
 
     AppleWeatherkitClient.handle_response(resp)
   end
-
-  def get_weather_forecast_availability(latitude, longitude)
-    resp = conn.get("/api/v1/availability/#{latitude}/#{longitude}", { country: "US" }) do |req|
-      req.headers["Authorization"] = "Bearer #{@jwt_service.get_valid_jwt}"
-    end
-
-    AppleWeatherkitClient.handle_response(resp)
-  end
 end

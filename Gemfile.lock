@@ -336,7 +336,7 @@ GEM
       rubocop-rails (>= 2.30)
     ruby-progressbar (1.13.0)
     securerandom (0.4.1)
-    shoulda-matchers (6.4.0)
+    shoulda-matchers (6.5.0)
       activesupport (>= 5.2.0)
     simplecov (0.22.0)
       docile (~> 1.1)
@@ -418,7 +418,7 @@ DEPENDENCIES
   rspec-rails (~> 8.0.0)
   rswag
   rubocop-rails-omakase
-  shoulda-matchers (~> 6.0)
+  shoulda-matchers (~> 6.5)
   simplecov
   sqlite3 (>= 2.1)
   thruster

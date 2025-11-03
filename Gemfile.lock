@@ -347,8 +347,8 @@ GEM
       rubocop-rails (>= 2.30)
     ruby-progressbar (1.13.0)
     securerandom (0.4.1)
-    shoulda-matchers (6.5.0)
-      activesupport (>= 5.2.0)
+    shoulda-matchers (7.0.1)
+      activesupport (>= 7.1)
     simplecov (0.22.0)
       docile (~> 1.1)
       simplecov-html (~> 0.11)
@@ -383,7 +383,7 @@ GEM
     unicode-display_width (3.1.4)
       unicode-emoji (~> 4.0, >= 4.0.4)
     unicode-emoji (4.0.4)
-    uri (1.0.4)
+    uri (1.1.0)
     useragent (0.16.11)
     webmock (3.26.1)
       addressable (>= 2.8.0)
@@ -430,7 +430,7 @@ DEPENDENCIES
   rspec-rails (~> 8.0.2)
   rswag
   rubocop-rails-omakase
-  shoulda-matchers (~> 6.5)
+  shoulda-matchers (~> 7.0)
   simplecov
   sqlite3 (>= 2.1)
   thruster

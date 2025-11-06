@@ -49,7 +49,7 @@ group :test do
   gem "mock_redis"
   gem "rails-controller-testing"
   gem "rspec-rails", "~> 8.0.2"
-  gem "shoulda-matchers", "~> 6.5"
+  gem "shoulda-matchers", "~> 7.0"
   gem "simplecov"
   gem "timecop"
   gem "webmock"

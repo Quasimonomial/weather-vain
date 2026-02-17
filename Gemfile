@@ -48,7 +48,7 @@ group :test do
   gem "faker"
   gem "mock_redis"
   gem "rails-controller-testing"
-  gem "rspec-rails", "~> 8.0.2"
+  gem "rspec-rails", "~> 8.0.3"
   gem "shoulda-matchers", "~> 7.0"
   gem "simplecov"
   gem "timecop"
